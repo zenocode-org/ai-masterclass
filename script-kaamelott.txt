@@ -1,0 +1,62 @@
+KARADOC: Bon, je vais essayer de trouver un petit lièvre pour ce soir parce qu’il commence à faire faim !
+BOHORT: Je me demande comment vous faîtes, moi je serais incapable de trouver de quoi manger dans la forêt.
+KARADOC: Pour attraper des bêtes, il faut imiter les femelles. Là, pour le coup, hop ! La femelle lièvre.
+BOHORT: La hase.
+KARADOC: De quoi ?
+BOHORT: La femelle lièvre, c’est la hase.
+KARADOC: Ah non, moi je connais que le cri.
+
+ARTHUR: Vous les voyez vous ?
+PERCEVAL: Non !
+ARTHUR: Ah bah tourné vers là bas c’est sûr, moi non plus j’vois rien !
+LEODAGAN: 
+PERCEVAL: Passez la tête ? Pour m’prendre une flèche dedans ? Non merci !
+LEODAGAN: Bon, on n’entend plus rien, hein, si ça s’trouve ils ont foutus l’camp.
+ARTHUR: Si ça s’trouve ? Alors pour nous sortir de là il va nous falloir un peu plus solide que du si ça s’trouve !
+LEODAGAN: Ils sont encore là ces cons !
+ARTHUR: On va pas rester plantés là comme des radis, si un autre groupe qui arrive par là on est marron des deux côtés.
+PERCEVAL: Et si on faisait le coup du bouclier humain ?
+LEODAGAN: Quel coup ?
+PERCEVAL: "Par exemple, Sire, Léodagan et moi on fait semblant de vous prendre en otage, on vous met une dague sous le cou et on traverse le camp adverse en gueulant : ""Bougez pas, bougez pas, on bute le roi !"""
+ARTHUR: Et quelles sont nos chances si on fonce ?
+LEODAGAN: Si on fonce où ça ?
+ARTHUR: Droit d’vant, en plein dans leur tronche. On sait même pas combien ils sont !
+LEODAGAN: Ah oui mais nous on est trois ! Enfin... deux et demi alors si ils sont dix... on est cuits !
+PERCEVAL: On pourrait balancer de la caillasse vers là-bas, comme ça ils s’disent qu’on y est et nous on part dans l’autre sens !
+ARTHUR: Ah non, s’il vous plaît, hein, laissez tomber les combines à deux ronds !
+PERCEVAL: Non, non, non vous allez voir !
+LEODAGAN ET ARTHUR: Non pas par là ! Pas par là !
+
+PERCEVAL: Putain en plein dans sa mouille !
+ARTHUR: Mais vous êtes complètement con !
+LEODAGAN: Vous allez peut-être me dire que maintenant ils croient qu’on est là-bas !
+PERCEVAL: Non mais maintenant il faut s’tirer dans l’autre sens !
+ARTHUR: Ah bah un peu oui ! Surtout que s’ils ont vus d’où v’nait la pierre ils sont en train d’radiner droit sur nous !
+PERCEVAL: Ouais mais nous on change de coin et quand ils arrivent là ils sont pinés, y a personne !
+PERCEVAL: Attendez ! Je vais les attirer ailleurs !
+
+PERCEVAL: Merde j’ai plus d’pierre ! Qu’est c’qu’on fait ?
+ARTHUR: Ben attendez ! J’vais vous rendre la votre !
+
+LEODAGAN: Eh ! Mais j’ai failli me la prendre !
+PERCEVAL: On pourrait foutre le feu à la forêt pour les obliger à sortir ! Non ! Il faut faire comme avec les scorpions qui se suicident quand ils sont entourés par le feu ! Faut faire un feu en forme de cercle autour d’eux, comme ça ils se suicident, pendant que nous on fait l’tour, et on lance de la caillasse de l’autre côté, pour brouiller.
+PERCEVAL: Non ?
+ARTHUR: C’est pas possible de rester coincé comme ça ! J’vais dev’nir dingue moi ! Allez on fonce dans le tas, tant pis !
+LEODAGAN: Dans une heure la nuit tombe, là y aura d’autres solutions ! Déjà ils seront obligés d’allumer leurs torches, on verra enfin où ils sont !
+PERCEVAL: Sinon on fait un tunnel jusqu’à notre campement, Léodagan et moi on creuse pendant que vous balancez de la caillasse dans l’autre sens pour les éloigner du chantier.
+LEODAGAN: Chuut ! Ils sont juste à côté ces cons-là !
+PERCEVAL: Merde ! S’ils ont entendu mon plan, c’est foutu !
+ARTHUR: La ferme !
+PERCEVAL: Bougez pas !
+
+ARTHUR: Mais arrêtez bon sang !
+LEODAGAN: Mais non on va s’faire tuer là !
+PERCEVAL: Animaux d’la forêt !
+
+PERCEVAL: Attendez !
+LEODAGAN: Oh non mais arrêtez là ! On va s’faire repérer là ! Oh putain !
+LEODAGAN: Arrêtez maintenant là, hein !
+ARTHUR: Mord le pied de Perceval.
+KARADOC: On construit un barrage, après on lance de la caillasse de l’autre côté de la rivière pour faire croire aux autres qu’on a traversé dans l’autre sens. Uns fois qu’ils sont au milieu, on casse le barrage et on les noie.
+BOHORT: C’est drôlement ingénieux !
+KARADOC: Ouais, le seul problème c’est quand on a passé quatre semaines à construire un barrage ça fait un peu mal au cul d’le détruire… Ou sinon s’qu’on peut faire on imite un chevreuil.

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#475569"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#dc2626"/></marker></defs>
+<rect width="900" height="560" fill="#fff"/>
+<text x="450" y="26" text-anchor="middle" font-size="18" font-weight="bold">Le flux résiduel : chaque couche LIT le flux et y AJOUTE sa contribution</text>
+<!-- stream -->
+<rect x="285" y="60" width="30" height="450" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="300" y="545" text-anchor="middle" font-size="13" font-weight="bold" fill="#1d4ed8">x : (B, T, C)</text>
+<g font-size="13" text-anchor="middle">
+<rect x="250" y="510" width="100" height="22" rx="4" fill="#ffedd5" stroke="#c2410c"/><text x="300" y="526" font-size="11">embeddings</text>
+<rect x="250" y="38" width="100" height="22" rx="4" fill="#ffedd5" stroke="#c2410c"/><text x="300" y="54" font-size="11">ln_f, lm_head</text>
+</g>
+<g font-size="12" text-anchor="middle">
+<rect x="390" y="420" width="190" height="40" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="485" y="444">bloc 1 : attention</text>
+<rect x="390" y="340" width="190" height="40" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="485" y="364">bloc 1 : FeedForward</text>
+<rect x="390" y="230" width="190" height="40" rx="8" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="485" y="254">bloc 2 : attention</text>
+<rect x="390" y="150" width="190" height="40" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="485" y="174">bloc 2 : FeedForward</text>
+<circle cx="300" cy="400" r="12" fill="#fff" stroke="#334155" stroke-width="2"/><text x="300" y="405" font-size="16">+</text>
+<circle cx="300" cy="320" r="12" fill="#fff" stroke="#334155" stroke-width="2"/><text x="300" y="325" font-size="16">+</text>
+<circle cx="300" cy="210" r="12" fill="#fff" stroke="#334155" stroke-width="2"/><text x="300" y="215" font-size="16">+</text>
+<circle cx="300" cy="130" r="12" fill="#fff" stroke="#334155" stroke-width="2"/><text x="300" y="135" font-size="16">+</text>
+</g>
+<g stroke="#475569" stroke-width="2" fill="none" marker-end="url(#a)">
+<path d="M315 460 L388 445"/><path d="M390 432 L312 400"/>
+<path d="M315 380 L388 365"/><path d="M390 352 L312 320"/>
+<path d="M315 270 L388 255"/><path d="M390 242 L312 210"/>
+<path d="M315 190 L388 175"/><path d="M390 162 L312 130"/>
+</g>
+<text x="600" y="430" font-size="11" fill="#475569">lit LayerNorm(x), écrit x ← x + f(x)</text>
+<!-- gradient -->
+<path d="M240 70 L240 500" stroke="#dc2626" stroke-width="4" fill="none" marker-end="url(#r)"/>
+<text x="230" y="250" text-anchor="end" font-size="13" font-weight="bold" fill="#dc2626">gradient</text>
+<text x="230" y="268" text-anchor="end" font-size="12" fill="#dc2626">pendant backward()</text>
+<text x="230" y="290" text-anchor="end" font-size="11" fill="#dc2626">∂(x + f(x))/∂x = 1 + ∂f/∂x</text>
+<text x="230" y="306" text-anchor="end" font-size="11" fill="#dc2626">le « 1 » est une autoroute :</text>
+<text x="230" y="322" text-anchor="end" font-size="11" fill="#dc2626">le signal d'erreur atteint</text>
+<text x="230" y="338" text-anchor="end" font-size="11" fill="#dc2626">les premières couches</text>
+<g font-size="12" fill="#334155">
+<text x="600" y="120">Sans résidus : x ← f₄(f₃(f₂(f₁(x))))</text>
+<text x="600" y="138">le gradient est un PRODUIT de</text>
+<text x="600" y="156">n_layer facteurs → il peut s'éteindre.</text>
+<text x="600" y="190">Avec résidus : x ← x + f₁(x) + f₂(…) + …</text>
+<text x="600" y="208">le gradient est une SOMME :</text>
+<text x="600" y="226">chaque couche reçoit un signal direct.</text>
+</g>
+</svg>

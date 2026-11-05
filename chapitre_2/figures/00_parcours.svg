@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#475569"/></marker></defs>
+<rect width="900" height="300" fill="#ffffff"/>
+<text x="450" y="30" text-anchor="middle" font-size="19" font-weight="bold" fill="#0f172a">Chapitre 2 — du bigramme au mini-GPT, en 9 notebooks</text>
+<g font-size="13" text-anchor="middle">
+<!-- row 1 -->
+<rect x="20" y="60" width="150" height="70" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="95" y="88" font-weight="bold">01 Datasets</text><text x="95" y="108">texte → indices</text>
+<rect x="200" y="60" width="150" height="70" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="275" y="88" font-weight="bold">02 Bigramme</text><text x="275" y="108">nn.Module, AdamW</text>
+<rect x="380" y="60" width="150" height="70" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="455" y="88" font-weight="bold">03 Batchs</text><text x="455" y="108">(B,T) et reshape</text>
+<rect x="560" y="60" width="150" height="70" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="635" y="88" font-weight="bold">04 Architecture</text><text x="635" y="108">la carte du Transformer</text>
+<rect x="740" y="60" width="140" height="70" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="810" y="88" font-weight="bold">05 Attention</text><text x="810" y="108">masque, Q K V, têtes</text>
+<!-- row 2 -->
+<rect x="740" y="200" width="140" height="70" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="810" y="228" font-weight="bold">06 FeedForward</text><text x="810" y="248">ReLU, dropout</text>
+<rect x="560" y="200" width="150" height="70" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="635" y="228" font-weight="bold">07 Enchaînement</text><text x="635" y="248">résidus, backprop</text>
+<rect x="380" y="200" width="150" height="70" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="455" y="228" font-weight="bold">08 GPTLanguageModel</text><text x="455" y="248">le modèle complet</text>
+<rect x="200" y="200" width="150" height="70" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="275" y="228" font-weight="bold">09 Entraînement</text><text x="275" y="248">courbes, génération</text>
+</g>
+<g stroke="#475569" stroke-width="2" marker-end="url(#a)" fill="none">
+<line x1="170" y1="95" x2="198" y2="95"/><line x1="350" y1="95" x2="378" y2="95"/><line x1="530" y1="95" x2="558" y2="95"/><line x1="710" y1="95" x2="738" y2="95"/>
+<line x1="810" y1="130" x2="810" y2="198"/><line x1="740" y1="235" x2="712" y2="235"/><line x1="560" y1="235" x2="532" y2="235"/><line x1="380" y1="235" x2="352" y2="235"/>
+</g>
+<g font-size="12" fill="#475569"><rect x="20" y="200" width="12" height="12" fill="#dbeafe" stroke="#2563eb"/><text x="38" y="211">rappels et outillage</text>
+<rect x="20" y="222" width="12" height="12" fill="#fef3c7" stroke="#d97706"/><text x="38" y="233">vue d'ensemble</text>
+<rect x="20" y="244" width="12" height="12" fill="#ede9fe" stroke="#7c3aed"/><text x="38" y="255">les briques du bloc</text>
+<rect x="20" y="266" width="12" height="12" fill="#dcfce7" stroke="#16a34a"/><text x="38" y="277">assemblage et résultats</text></g>
+</svg>

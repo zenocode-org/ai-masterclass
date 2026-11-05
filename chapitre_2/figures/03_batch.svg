@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" width="900" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#475569"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#dc2626"/></marker></defs>
+<rect width="900" height="420" fill="#fff"/>
+<text x="450" y="26" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">Un batch = B fenêtres de T caractères tirées au hasard dans le corpus</text>
+<!-- corpus strip -->
+<rect x="20" y="50" width="860" height="26" fill="#f1f5f9" stroke="#64748b"/>
+<text x="30" y="68" font-size="13" font-family="monospace" fill="#334155">First Citizen: Before we proceed any further, hear me speak. All: Speak, speak. You are</text>
+<rect x="145" y="48" width="66" height="30" fill="none" stroke="#2563eb" stroke-width="3"/><text x="178" y="96" text-anchor="middle" font-size="12" fill="#2563eb">b = 0</text>
+<rect x="504" y="48" width="66" height="30" fill="none" stroke="#7c3aed" stroke-width="3"/><text x="537" y="96" text-anchor="middle" font-size="12" fill="#7c3aed">b = 1</text>
+<rect x="652" y="48" width="66" height="30" fill="none" stroke="#16a34a" stroke-width="3"/><text x="685" y="96" text-anchor="middle" font-size="12" fill="#16a34a">b = 2</text>
+<text x="450" y="118" text-anchor="middle" font-size="12" fill="#475569">ix = torch.randint(len(data) - T, (B,))  : B points de départ aléatoires</text>
+<!-- x / y grid -->
+<g font-family="monospace" font-size="14" text-anchor="middle">
+<text x="40" y="160" font-family="Helvetica" font-weight="bold">x</text>
+<text x="40" y="262" font-family="Helvetica" font-weight="bold">y</text>
+</g>
+<g font-size="11" fill="#475569" text-anchor="middle"><text x="95" y="140">t=0</text><text x="135" y="140">t=1</text><text x="175" y="140">t=2</text><text x="215" y="140">t=3</text><text x="255" y="140">t=4</text><text x="295" y="140">t=5</text><text x="335" y="140">t=6</text><text x="375" y="140">t=7</text></g>
+<g stroke="#334155" fill="#dbeafe">
+<rect x="75" y="146" width="40" height="22"/><rect x="115" y="146" width="40" height="22"/><rect x="155" y="146" width="40" height="22"/><rect x="195" y="146" width="40" height="22"/><rect x="235" y="146" width="40" height="22"/><rect x="275" y="146" width="40" height="22"/><rect x="315" y="146" width="40" height="22"/><rect x="355" y="146" width="40" height="22"/>
+</g>
+<g stroke="#334155" fill="#ede9fe">
+<rect x="75" y="170" width="40" height="22"/><rect x="115" y="170" width="40" height="22"/><rect x="155" y="170" width="40" height="22"/><rect x="195" y="170" width="40" height="22"/><rect x="235" y="170" width="40" height="22"/><rect x="275" y="170" width="40" height="22"/><rect x="315" y="170" width="40" height="22"/><rect x="355" y="170" width="40" height="22"/>
+</g>
+<g stroke="#334155" fill="#dcfce7">
+<rect x="75" y="194" width="40" height="22"/><rect x="115" y="194" width="40" height="22"/><rect x="155" y="194" width="40" height="22"/><rect x="195" y="194" width="40" height="22"/><rect x="235" y="194" width="40" height="22"/><rect x="275" y="194" width="40" height="22"/><rect x="315" y="194" width="40" height="22"/><rect x="355" y="194" width="40" height="22"/>
+</g>
+<g font-family="monospace" font-size="13" text-anchor="middle">
+<text x="95" y="162">B</text><text x="135" y="162">e</text><text x="175" y="162">f</text><text x="215" y="162">o</text><text x="255" y="162">r</text><text x="295" y="162">e</text><text x="335" y="162">␣</text><text x="375" y="162">w</text>
+<text x="95" y="186">A</text><text x="135" y="186">l</text><text x="175" y="186">l</text><text x="215" y="186">:</text><text x="255" y="186">␣</text><text x="295" y="186">S</text><text x="335" y="186">p</text><text x="375" y="186">e</text>
+<text x="95" y="210">Y</text><text x="135" y="210">o</text><text x="175" y="210">u</text><text x="215" y="210">␣</text><text x="255" y="210">a</text><text x="295" y="210">r</text><text x="335" y="210">e</text><text x="375" y="210">␣</text>
+</g>
+<g stroke="#334155" fill="#f8fafc">
+<rect x="75" y="248" width="40" height="22"/><rect x="115" y="248" width="40" height="22"/><rect x="155" y="248" width="40" height="22"/><rect x="195" y="248" width="40" height="22"/><rect x="235" y="248" width="40" height="22"/><rect x="275" y="248" width="40" height="22"/><rect x="315" y="248" width="40" height="22"/><rect x="355" y="248" width="40" height="22"/>
+</g>
+<g font-family="monospace" font-size="13" text-anchor="middle">
+<text x="95" y="264">e</text><text x="135" y="264">f</text><text x="175" y="264">o</text><text x="215" y="264">r</text><text x="255" y="264">e</text><text x="295" y="264">␣</text><text x="335" y="264">w</text><text x="375" y="264">e</text>
+</g>
+<text x="235" y="290" text-anchor="middle" font-size="12" fill="#475569">y = x décalé d'un cran (ligne b=0 seulement, les autres idem)</text>
+<g stroke="#475569" stroke-width="1.5" marker-end="url(#a)"><line x1="95" y1="218" x2="95" y2="246"/><line x1="375" y1="218" x2="375" y2="246"/></g>
+<text x="235" y="316" text-anchor="middle" font-size="13" font-weight="bold">x, y : (B, T) = (3, 8)  →  24 prédictions en un seul passage</text>
+<!-- shapes pipeline -->
+<rect x="470" y="150" width="120" height="44" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="530" y="170" text-anchor="middle" font-size="13" font-weight="bold">idx (B, T)</text><text x="530" y="186" text-anchor="middle" font-size="11">entiers</text>
+<rect x="640" y="150" width="120" height="44" rx="8" fill="#ffedd5" stroke="#c2410c" stroke-width="2"/><text x="700" y="170" text-anchor="middle" font-size="13" font-weight="bold">modèle</text><text x="700" y="186" text-anchor="middle" font-size="11">(bigramme, GPT…)</text>
+<rect x="640" y="230" width="140" height="44" rx="8" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/><text x="710" y="250" text-anchor="middle" font-size="13" font-weight="bold">logits (B, T, V)</text><text x="710" y="266" text-anchor="middle" font-size="11">V scores par position</text>
+<rect x="470" y="320" width="150" height="44" rx="8" fill="#fed7aa" stroke="#c2410c" stroke-width="2"/><text x="545" y="340" text-anchor="middle" font-size="13" font-weight="bold">logits (B·T, V)</text><text x="545" y="356" text-anchor="middle" font-size="11">.view(B*T, V)</text>
+<rect x="650" y="320" width="150" height="44" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="2"/><text x="725" y="340" text-anchor="middle" font-size="13" font-weight="bold">cibles (B·T,)</text><text x="725" y="356" text-anchor="middle" font-size="11">y.view(B*T)</text>
+<rect x="540" y="384" width="200" height="30" rx="15" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/><text x="640" y="404" text-anchor="middle" font-size="13">F.cross_entropy → 1 nombre</text>
+<g stroke="#475569" stroke-width="2" marker-end="url(#a)" fill="none"><line x1="590" y1="172" x2="638" y2="172"/><line x1="700" y1="194" x2="705" y2="228"/><line x1="680" y1="274" x2="570" y2="318"/><path d="M590 364 L620 382"/><path d="M710 364 L680 382"/></g>
+</svg>

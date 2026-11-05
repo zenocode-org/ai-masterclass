@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# artefacts produits par les notebooks du chapitre 3
+chapitre_3/adapters/
+chapitre_3/merged/
+chapitre_3/evaluation/
+chapitre_3/llama.cpp/
+chapitre_3/checkpoints/*/
