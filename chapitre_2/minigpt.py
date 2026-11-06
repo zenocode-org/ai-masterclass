@@ -24,7 +24,7 @@ torch.set_num_threads(max(1, min(8, os.cpu_count() or 1)))
 ICI = Path(__file__).resolve().parent
 CORPUS = {
     "shakespeare": "shakespeare.txt",
-    "kaamelott": "script-kaamelott.txt",
+    "kaamelott": "kaamelott.txt",
     "platon": "plato_train.txt",
 }
 # On cherche les fichiers à côté du notebook, puis dans le dossier parent,

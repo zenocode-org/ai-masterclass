@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 345" width="900" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#475569"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#dc2626"/></marker></defs>
+<rect width="900" height="345" fill="#ffffff"/>
+<text x="450" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">Deux chemins vers la même table de probabilités</text>
+<g font-size="14" text-anchor="middle">
+<rect x="20" y="125" width="130" height="70" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/><text x="85" y="155" font-weight="bold">names.txt</text><text x="85" y="175" font-size="12">228 146 bigrammes</text>
+<rect x="220" y="55" width="150" height="60" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="295" y="82" font-weight="bold">compter N</text><text x="295" y="100" font-size="12">N[i, j] += 1</text>
+<rect x="430" y="55" width="170" height="60" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="515" y="82" font-weight="bold">normaliser</text><text x="515" y="100" font-size="12">P = N / somme de ligne</text>
+<rect x="220" y="205" width="150" height="60" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="295" y="232" font-weight="bold">W au hasard</text><text x="295" y="250" font-size="12">torch.randn(27, 27)</text>
+<rect x="430" y="205" width="170" height="60" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="515" y="228" font-weight="bold">descente de gradient</text><text x="515" y="248" font-size="12">minimiser la NLL</text>
+<rect x="680" y="125" width="190" height="70" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="775" y="152" font-weight="bold">≈ même table</text><text x="775" y="174" font-size="12">NLL ≈ 2,45 dans les deux cas</text>
+</g>
+<g stroke="#475569" stroke-width="2" marker-end="url(#a)" fill="none">
+<path d="M150,145 L218,90"/><path d="M150,175 L218,230"/><line x1="370" y1="85" x2="428" y2="85"/><line x1="370" y1="235" x2="428" y2="235"/><path d="M600,85 L678,145"/><path d="M600,235 L678,178"/>
+</g>
+<path d="M515,270 q0,35 -60,35 h-100 q-60,0 -60,-35" stroke="#16a34a" stroke-width="2" fill="none" marker-end="url(#a)" stroke-dasharray="5 4"/>
+<text x="405" y="330" text-anchor="middle" font-size="12" fill="#16a34a">répéter : forward, backward, mise à jour</text>
+<text x="295" y="145" text-anchor="middle" font-size="13" fill="#2563eb">directement, sans apprentissage</text>
+<text x="295" y="180" text-anchor="middle" font-size="13" fill="#7c3aed">par apprentissage</text>
+</svg>

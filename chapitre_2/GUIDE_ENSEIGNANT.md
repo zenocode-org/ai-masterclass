@@ -15,7 +15,7 @@ Ce document sert à **conduire** la séance : ordre, durées, messages clés, tr
 | 06 | `06_feedforward` | 25 min | Attention = communication, FeedForward = calcul ; ReLU indispensable ; dropout. | < 5 s |
 | 07 | `07_enchainement_backprop` | 40 min | Les couches apprennent ensemble ; les résidus font passer le gradient. | ≈ 35 s |
 | 08 | `08_gpt_language_model` | 25 min | Assemblage + embedding de position ; le modèle complet est causal. | < 5 s |
-| 09 | `09_entrainement_evaluation` | 35 min | Courbes train/val, loss par position, têtes, génération, surapprentissage. | ≈ 3–4 min |
+| 09 | `09_entrainement_evaluation` | 35 min | Courbes train/val, loss par position, têtes, génération, température. | ≈ 2 min |
 
 **Total : ≈ 4 h 45.** Découpage conseillé en deux séances :
 - **Séance A (≈ 2 h 15)** : 01 → 02 → 03 → diapos → 04. Fin sur la carte de l'architecture : « la prochaine fois, on construit le milieu ».
@@ -26,7 +26,7 @@ Si vous n'avez que 2 × 2 h : raccourcissez 01 (10 min), passez vite sur la vér
 ## Mise en place
 
 - Dossier : `from-bigram-to-transformer/chapitre_2/`. Les notebooks importent `minigpt.py` (même dossier). Le code de ce module est exactement celui construit dans les notebooks : il évite de recopier les classes d'un notebook à l'autre.
-- Données : `shakespeare.txt` et `script-kaamelott.txt` sont dans le dossier parent. **`plato_train.txt` est cherché dans `../philo-masterclass/data/`** : pour distribuer le cours aux étudiants, copiez-le à côté des notebooks (ou dans `chapitre_2/data/`).
+- Données : `shakespeare.txt` et `kaamelott.txt` sont dans le dossier parent. `kaamelott.txt` (≈ 2,4 M de caractères, 455 épisodes) est généré une fois pour toutes depuis le CSV du [dataset Kaggle](https://www.kaggle.com/datasets/jeanmidev/kaamelott-tv-show-transcripts-fr) par `../preparer_kaamelott.py` ; l'ancien extrait `script-kaamelott.txt` (4 237 caractères) n'est plus utilisé. `plato_train.txt` est aussi dans le dossier parent (à défaut, il est cherché dans `../philo-masterclass/data/`).
 - Dépendances : `torch`, `matplotlib`, `numpy`. Tout tourne sur CPU ; `minigpt` limite PyTorch à 8 threads (au-delà, c'est plus lent sur les portables hybrides).
 - Les schémas sont dans `figures/` (SVG) : ils s'affichent dans Jupyter et VS Code. Deux images viennent de Wikimedia (connexion requise, crédits sous les images).
 - Tous les notebooks ont été exécutés et sauvegardés **avec leurs sorties** : vous pouvez les projeter sans rien relancer.
@@ -46,9 +46,9 @@ Et la phrase de Karpathy pour le bloc : **l'attention, c'est la communication ; 
 **Messages clés.**
 - Espaces et `\n` sont des caractères : le modèle apprend la mise en page.
 - Un indice est une **étiquette**, pas une quantité (préparer l'embedding).
-- Kaamelott fait 4 237 caractères : il servira à **montrer le surapprentissage** au 09, pas à générer de belles répliques.
+- Kaamelott (série complète) fait ≈ 2,4 M de caractères, plus du double de Shakespeare ; Platon ≈ 3,9 M.
 
-**Moment à exploiter.** La cellule « Arthur, c'est pas faux ! » : Kaamelott ne connaît **pas** l'apostrophe `'` (le script utilise `’`). Excellent exemple de « le modèle ne connaît que les symboles de son corpus ».
+**Moment à exploiter.** Kaamelott contient **deux apostrophes**, `'` (≈ 16 000) et `’` (≈ 19 000), selon les épisodes : pour le tokeniseur, ce sont deux symboles sans rapport, et le modèle devra apprendre « c'est » deux fois. Excellent exemple de « le modèle ne voit que des symboles ». Son vocabulaire (V = 116, avec chiffres et signes rares) donne aussi une loss uniforme plus haute : log 116 ≈ 4,75.
 
 **Questions fréquentes.**
 - *Pourquoi pas des mots ?* Vocabulaire énorme (25 000 mots distincts dans Shakespeare contre 65 caractères), mots inconnus impossibles. Les vrais GPT utilisent des sous-mots (BPE), avec le même modèle derrière.
@@ -182,7 +182,7 @@ Ce notebook répond à la demande « comment les layers s'enchaînent et s'influ
 
 **Lancez la cellule d'entraînement dès le début** et commentez la boucle pendant qu'elle tourne.
 
-**Déroulé.** Hyperparamètres → boucle (figure) → courbes train/val avec repères uniforme et bigramme → perplexité → **loss par position** → **cartes d'attention apprises** → génération → température → **Kaamelott : surapprentissage** + mesure de copie → expériences → synthèse.
+**Déroulé.** Hyperparamètres → boucle (figure) → courbes train/val avec repères uniforme et bigramme → perplexité → **loss par position** → **cartes d'attention apprises** → génération → température → expériences → synthèse.
 
 **Résultats de référence (CPU, 8 threads).** Voir le tableau en fin de guide.
 
@@ -190,11 +190,10 @@ Ce notebook répond à la demande « comment les layers s'enchaînent et s'influ
 - Tout ce qui est sous la ligne du bigramme est dû au **contexte**.
 - La **loss par position** est la preuve chiffrée : à t = 0 le GPT fait comme un bigramme, avec 10 caractères de contexte il fait nettement mieux.
 - Juger un modèle sur la **validation**, pas sur un texte généré.
-- Kaamelott : train → 0, val ↑. Le modèle **recopie** de longs passages ; sur Shakespeare, il compose.
 
 **Têtes d'attention.** Les motifs varient d'un entraînement à l'autre. Cherchez avec la classe : diagonale décalée (caractère précédent), colonnes sur les espaces / retours à la ligne (début de mot ou de ligne), têtes diffuses.
 
-**Expériences de fin.** Répartir les lignes du tableau du §9 entre groupes d'étudiants ; chacun rapporte **une** loss de validation. Comparer au tableau.
+**Expériences de fin.** Répartir les lignes du tableau du §8 (dont `CORPUS = "kaamelott"`) entre groupes d'étudiants ; chacun rapporte **une** loss de validation. Comparer au tableau.
 
 ---
 
@@ -215,12 +214,10 @@ Mesuré sur CPU (8 threads), configuration du notebook : B=32, T=64, C=64, 4 tê
 
 | Mesure | Valeur |
 |---|---|
-| Durée de l'entraînement | 112 s (≈ 4 min pour tout le notebook) |
+| Durée de l'entraînement | 112 s (≈ 2 min pour tout le notebook) |
 | Loss val : uniforme / meilleur bigramme / mini-GPT | 4,17 / 2,48 / **1,91** |
 | Perplexité : uniforme / bigramme / mini-GPT | 65 / 12,0 / **6,8** caractères |
 | Loss par position (val) : t=0 / t=10 / t=63 | 2,51 / 1,85 / 1,91 |
-| Kaamelott, 800 pas sans dropout : train / val finale / meilleure val | 0,27 / 3,87 / 2,33 |
-| Plus long passage recopié du corpus (300 caractères générés) | Kaamelott 26 car. · Shakespeare 12 car. |
 
 Cartes d'attention observées lors de cette exécution : en couche 0, trois têtes sur quatre regardent surtout le **caractère courant** et une est diffuse. En couche 3, les motifs sont plus variés, et une tête se concentre sur le **dernier retour à la ligne** (le début de la réplique). Les motifs changent d'un entraînement à l'autre.
 
