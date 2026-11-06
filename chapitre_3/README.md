@@ -29,9 +29,11 @@ Chaque notebook a un bouton « Open in Colab ». Pour 05, 06 et 07 : *Exécution
 ## En local (notebooks 01 à 04)
 
 ```bash
-pip install torch transformers peft matplotlib numpy
-jupyter lab   # depuis chapitre_3/
+uv sync            # à la racine du dépôt : crée .venv avec torch, transformers, peft…
+uv run jupyter lab
 ```
+
+Voir la section « Exécuter les notebooks » du [README principal](../README.md).
 
 Les notebooks 01 à 04 ont été exécutés et sauvegardés **avec leurs sorties** (CPU). Les notebooks 05 à 07 sont **sans sorties** : ils demandent un GPU.
 

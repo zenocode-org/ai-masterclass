@@ -7,3 +7,6 @@ chapitre_3/merged/
 chapitre_3/evaluation/
 chapitre_3/llama.cpp/
 chapitre_3/checkpoints/*/
+
+# environnement uv
+.venv/

@@ -1,0 +1,36 @@
+[project]
+name = "ai-masterclass"
+version = "1.0.0"
+description = "Du bigramme au fine-tuning d'un LLM : cours en notebooks Jupyter (chapitres 1 à 3)."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    # chapitres 1 et 2
+    "torch>=2.6",
+    "numpy>=2.0",
+    "matplotlib>=3.9",
+    # chapitre 3, notebooks 01 à 04 (CPU)
+    "transformers>=5.17",
+    "peft>=0.21",
+    "accelerate>=1.10",
+    # Jupyter
+    "jupyterlab>=4.3",
+    "ipykernel>=6.29",
+    "ipywidgets>=8.1",
+]
+
+[dependency-groups]
+# Notebooks 05 à 07 du chapitre 3 hors de Colab (GPU NVIDIA obligatoire) : uv sync --group gpu
+gpu = [
+    "trl>=1.17",
+    "bitsandbytes>=0.50",
+    "datasets>=5.0",
+]
+# Outils pour réexécuter les notebooks en ligne de commande (installé par défaut)
+dev = [
+    "nbclient>=0.10",
+    "nbformat>=5.10",
+]
+
+[tool.uv]
+package = false   # un cours, pas une bibliothèque : uv crée seulement l'environnement

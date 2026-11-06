@@ -27,6 +27,7 @@ Le cours avance en trois étapes. Vous commencez par compter des lettres dans de
 ```text
 .
 ├── README.md                  ← vous êtes ici
+├── pyproject.toml, uv.lock    ← l'environnement Python (uv sync)
 ├── names.txt                  ← 32 000 prénoms (chapitre 1)
 ├── shakespeare.txt            ← Tiny Shakespeare, 1,1 M caractères (chapitres 2 et 3)
 ├── kaamelott.txt              ← la série Kaamelott complète, 2,4 M caractères (chapitre 2)
@@ -68,29 +69,51 @@ Les fichiers `GUIDE_ENSEIGNANT.md` s'adressent aux enseignants (déroulé, duré
 
 ---
 
-## 3. Installation
+## 3. Exécuter les notebooks
+
+Deux possibilités : **Google Colab** (rien à installer) ou **votre machine** avec `uv`.
+
+Tous les notebooks sont livrés **avec leurs sorties**, sauf 05 à 07 du chapitre 3 qui demandent un GPU. Vous pouvez donc les lire comme un livre avant de les exécuter.
+
+### Option A — Google Colab (recommandé pour démarrer)
+
+Cliquez sur un lien ci-dessous, ou sur le bouton « Open in Colab » en haut de chaque notebook. Lancez ensuite *Exécution → Tout exécuter*.
+
+| Chapitre | Notebooks |
+|---|---|
+| 1 — Bigrammes | [01](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_1/01_compter_les_bigrammes.ipynb) · [02](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_1/02_mesurer_la_loss.ipynb) · [03](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_1/03_one_hot_et_poids.ipynb) · [04](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_1/04_softmax_forward_pass.ipynb) · [05](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_1/05_gradients_et_mise_a_jour.ipynb) · [06](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_1/06_entrainement_et_comparaison.ipynb) |
+| 2 — Mini-GPT | [01](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/01_datasets.ipynb) · [02](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/02_bigramme_nn_module.ipynb) · [03](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/03_batch_learning.ipynb) · [04](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/04_architecture_transformer.ipynb) · [05](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/05_attention.ipynb) · [06](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/06_feedforward.ipynb) · [07](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/07_enchainement_backprop.ipynb) · [08](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/08_gpt_language_model.ipynb) · [09](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_2/09_entrainement_evaluation.ipynb) |
+| 3 — Fine-tuning | [01](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_3/01_pourquoi_finetuner.ipynb) · [02](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_3/02_donnees_dialogues.ipynb) · [03](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_3/03_lora_a_la_main.ipynb) · [04](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_3/04_memoire_quantification.ipynb) · [05](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_3/05_qlora_mistral_colab.ipynb) · [06](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_3/06_evaluation_colab.ipynb) · [07](https://colab.research.google.com/github/zenocode-org/ai-masterclass/blob/main/chapitre_3/07_annexe_fusion_gguf.ipynb) |
+
+**Comment ça marche.** Colab n'ouvre que le fichier `.ipynb`, sur une machine vide. La **première cellule de code** de chaque notebook détecte Colab et clone ce dépôt. Elle récupère ainsi les corpus et les modules (`bigramme.py`, `minigpt.py`, `finetune.py`), puis se place dans le dossier du chapitre. En local, cette cellule ne fait rien. Il n'y a **rien à copier sur Google Drive**.
+
+- PyTorch, NumPy, Matplotlib et Transformers sont déjà installés sur Colab. Les notebooks 05 à 07 du chapitre 3 installent eux-mêmes leurs bibliothèques en plus (TRL, bitsandbytes…).
+- Pour les notebooks 05 à 07 du chapitre 3 : *Exécution → Modifier le type d'exécution → GPU (T4)*. Les autres tournent sur le CPU gratuit.
+- Vos modifications sont perdues à la fermeture de la session. Pour les garder : *Fichier → Enregistrer une copie dans Drive*.
+- Après un redémarrage de la session, relancez le notebook depuis la première cellule.
+
+### Option B — Sur votre machine, avec uv
+
+[uv](https://docs.astral.sh/uv/) crée l'environnement Python et installe les bonnes versions en une commande. Le fichier `pyproject.toml` liste les dépendances et `uv.lock` fige leurs versions.
 
 ```bash
+# 1. installer uv (une seule fois) : https://docs.astral.sh/uv/getting-started/installation/
+curl -LsSf https://astral.sh/uv/install.sh | sh        # Windows : voir le lien ci-dessus
+
+# 2. récupérer le cours et créer l'environnement (.venv/)
 git clone https://github.com/zenocode-org/ai-masterclass.git
 cd ai-masterclass
-python -m venv .venv && source .venv/bin/activate      # Windows : .venv\Scripts\activate
-pip install torch matplotlib numpy jupyterlab           # chapitres 1 et 2
-pip install transformers peft                          # en plus pour le chapitre 3 (notebooks 01 à 04)
-jupyter lab
+uv sync
+
+# 3. lancer Jupyter
+uv run jupyter lab
 ```
 
-Pour PyTorch **sans GPU**, la version CPU est plus légère : `pip install torch --index-url https://download.pytorch.org/whl/cpu`.
+L'environnement contient PyTorch, NumPy, Matplotlib, Transformers, PEFT et JupyterLab : de quoi exécuter les chapitres 1 et 2 et les notebooks 01 à 04 du chapitre 3. Pour exécuter aussi les notebooks 05 à 07 hors de Colab, il faut un GPU NVIDIA et `uv sync --group gpu`.
 
-**Sur Google Colab** (sans rien installer) :
-- **Chapitre 3 :** chaque notebook a un bouton « Open in Colab » (voir `chapitre_3/README.md`), et sa première cellule clone le dépôt.
-- **Chapitres 1 et 2 :** ouvrez un notebook vide et exécutez la cellule ci-dessous, puis ouvrez le notebook voulu depuis le panneau *Fichiers*.
+Dans VS Code, choisissez l'interpréteur `.venv` du dossier comme noyau des notebooks.
 
-  ```python
-  !git clone https://github.com/zenocode-org/ai-masterclass.git
-  %cd ai-masterclass/chapitre_2
-  ```
-
-Tous les notebooks sont livrés **avec leurs sorties** (sauf 05 à 07 du chapitre 3, qui demandent un GPU). Vous pouvez donc les lire comme un livre avant de les exécuter.
+**Sans uv :** `python -m venv .venv`, activez-le, puis `pip install torch numpy matplotlib transformers peft accelerate jupyterlab`. Sous Linux sans GPU NVIDIA, installez d'abord la version CPU de PyTorch, bien plus légère (la version par défaut embarque CUDA, plusieurs Go) : `pip install torch --index-url https://download.pytorch.org/whl/cpu`.
 
 ---
 
