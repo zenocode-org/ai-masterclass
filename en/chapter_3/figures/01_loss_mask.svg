@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" width="900" font-family="Helvetica, Arial, sans-serif">
+<rect width="900" height="250" fill="#ffffff"/>
+<text x="450" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">SFT: same cross-entropy as in chapter 2, but only on the response</text>
+<g font-size="13" text-anchor="middle" font-family="Menlo, Consolas, monospace">
+<rect x="20" y="60" width="60" height="40" fill="#e2e8f0" stroke="#64748b"/><text x="50" y="85">&lt;s&gt;</text>
+<rect x="80" y="60" width="80" height="40" fill="#e2e8f0" stroke="#64748b"/><text x="120" y="85">[INST]</text>
+<rect x="160" y="60" width="110" height="40" fill="#e2e8f0" stroke="#64748b"/><text x="215" y="85">Continue</text>
+<rect x="270" y="60" width="60" height="40" fill="#e2e8f0" stroke="#64748b"/><text x="300" y="85">…</text>
+<rect x="330" y="60" width="110" height="40" fill="#e2e8f0" stroke="#64748b"/><text x="385" y="85">ARTHUR:</text>
+<rect x="440" y="60" width="60" height="40" fill="#e2e8f0" stroke="#64748b"/><text x="470" y="85">…</text>
+<rect x="500" y="60" width="80" height="40" fill="#e2e8f0" stroke="#64748b"/><text x="540" y="85">[/INST]</text>
+<rect x="580" y="60" width="90" height="40" fill="#bbf7d0" stroke="#16a34a"/><text x="625" y="85">▁PER</text>
+<rect x="670" y="60" width="70" height="40" fill="#bbf7d0" stroke="#16a34a"/><text x="705" y="85">CEVAL</text>
+<rect x="740" y="60" width="70" height="40" fill="#bbf7d0" stroke="#16a34a"/><text x="775" y="85">▁Non</text>
+<rect x="810" y="60" width="70" height="40" fill="#bbf7d0" stroke="#16a34a"/><text x="845" y="85">&lt;/s&gt;</text>
+<text x="50" y="130" fill="#64748b">-100</text><text x="120" y="130" fill="#64748b">-100</text><text x="215" y="130" fill="#64748b">-100</text><text x="300" y="130" fill="#64748b">-100</text><text x="385" y="130" fill="#64748b">-100</text><text x="470" y="130" fill="#64748b">-100</text><text x="540" y="130" fill="#64748b">-100</text>
+<text x="625" y="130" fill="#166534" font-weight="bold">label</text><text x="705" y="130" fill="#166534" font-weight="bold">label</text><text x="775" y="130" fill="#166534" font-weight="bold">label</text><text x="845" y="130" fill="#166534" font-weight="bold">label</text>
+</g>
+<g font-size="14" fill="#0f172a">
+<rect x="20" y="160" width="14" height="14" fill="#e2e8f0" stroke="#64748b"/><text x="42" y="172">prompt (instruction + context): the model reads it, but these tokens do not count in the loss (label = -100)</text>
+<rect x="20" y="188" width="14" height="14" fill="#bbf7d0" stroke="#16a34a"/><text x="42" y="200">response (completion): each token is a “predict the next token” exercise, as in chapter 2</text>
+<text x="20" y="232" font-size="15">L(θ) = − Σ  log p_θ( y_t | y_&lt;t , x )   — sum over the green tokens only; x = prompt, y = response</text>
+</g>
+</svg>

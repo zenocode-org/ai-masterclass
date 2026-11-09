@@ -1,12 +1,17 @@
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-# artefacts produits par les notebooks du chapitre 3
-chapitre_3/adapters/
-chapitre_3/merged/
-chapitre_3/evaluation/
-chapitre_3/llama.cpp/
-chapitre_3/checkpoints/*/
+# artifacts produced by the chapter 3 notebooks / artefacts produits par les notebooks du chapitre 3
+fr/chapitre_3/adapters/
+fr/chapitre_3/merged/
+fr/chapitre_3/evaluation/
+fr/chapitre_3/llama.cpp/
+fr/chapitre_3/checkpoints/*/
+en/chapter_3/adapters/
+en/chapter_3/merged/
+en/chapter_3/evaluation/
+en/chapter_3/llama.cpp/
+en/chapter_3/checkpoints/*/
 
 # environnement uv
 .venv/

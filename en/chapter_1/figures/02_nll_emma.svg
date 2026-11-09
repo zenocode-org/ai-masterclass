@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" width="900" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#475569"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#dc2626"/></marker></defs>
+<rect width="900" height="330" fill="#ffffff"/>
+<text x="450" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">Scoring the model on “emma”: five questions, five penalties, one mean</text>
+<g font-size="14" text-anchor="middle" fill="#475569" font-weight="bold">
+<text x="110" y="62">question</text><text x="300" y="62">p(correct answer)</text><text x="510" y="62">penalty −log p</text>
+</g>
+<g font-size="15" font-family="JetBrains Mono, monospace" text-anchor="middle">
+<g fill="#dbeafe" stroke="#2563eb"><rect x="50" y="75" width="120" height="34" rx="6"/><rect x="50" y="117" width="120" height="34" rx="6"/><rect x="50" y="159" width="120" height="34" rx="6"/><rect x="50" y="201" width="120" height="34" rx="6"/><rect x="50" y="243" width="120" height="34" rx="6"/></g>
+<text x="110" y="97">. → e</text><text x="110" y="139">e → m</text><text x="110" y="181">m → m</text><text x="110" y="223">m → a</text><text x="110" y="265">a → .</text>
+<!-- bars for p -->
+<g fill="#93c5fd"><rect x="230" y="80" width="7" height="24"/><rect x="230" y="122" width="6" height="24"/><rect x="230" y="164" width="4" height="24"/><rect x="230" y="206" width="58" height="24"/><rect x="230" y="248" width="29" height="24"/></g>
+<g font-size="14" text-anchor="start"><text x="300" y="97">0.048</text><text x="300" y="139">0.038</text><text x="300" y="181">0.025</text><text x="300" y="223">0.390</text><text x="300" y="265">0.196</text></g>
+<g fill="#fca5a5"><rect x="450" y="80" width="122" height="24"/><rect x="450" y="122" width="131" height="24"/><rect x="450" y="164" width="147" height="24"/><rect x="450" y="206" width="38" height="24"/><rect x="450" y="248" width="65" height="24"/></g>
+<g font-size="14" text-anchor="start"><text x="610" y="97">3.04</text><text x="610" y="139">3.28</text><text x="610" y="181">3.68</text><text x="500" y="223">0.94</text><text x="525" y="265">1.63</text></g>
+</g>
+<g stroke="#475569" stroke-width="2" marker-end="url(#a)" fill="none"><line x1="180" y1="176" x2="222" y2="176"/><line x1="370" y1="176" x2="442" y2="176"/><line x1="670" y1="176" x2="718" y2="176"/></g>
+<text x="406" y="168" text-anchor="middle" font-size="12" fill="#475569">−log</text>
+<rect x="725" y="130" width="150" height="92" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="800" y="158" text-anchor="middle" font-size="14" font-weight="bold">mean</text>
+<text x="800" y="186" text-anchor="middle" font-size="22" font-family="JetBrains Mono, monospace" fill="#b45309">2.51</text>
+<text x="800" y="208" text-anchor="middle" font-size="12">= NLL of “emma”</text>
+<text x="450" y="306" text-anchor="middle" font-size="13" fill="#475569">Small probability given to the correct answer → large penalty. Uniform model: −log(1/27) ≈ 3.30 everywhere.</text>
+</svg>
