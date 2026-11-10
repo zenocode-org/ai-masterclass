@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 375" width="900" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#475569"/></marker></defs>
+<rect width="900" height="370" fill="#ffffff"/>
+<text x="450" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">LoRA: y = W₀x + (α/r)·B A x</text>
+<g text-anchor="middle" font-size="14">
+<text x="90" y="185" font-size="18" font-weight="bold">x</text><text x="90" y="205" fill="#475569">(k)</text>
+<rect x="250" y="70" width="200" height="200" fill="#e2e8f0" stroke="#64748b" stroke-width="2"/>
+<text x="350" y="160" font-size="20" font-weight="bold">W₀</text><text x="350" y="185">d × k</text><text x="350" y="210" fill="#b91c1c" font-weight="bold">frozen</text>
+<rect x="560" y="70" width="34" height="200" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/><text x="577" y="290">B</text><text x="577" y="308" font-size="12">d × r</text>
+<rect x="610" y="150" width="140" height="34" fill="#bbf7d0" stroke="#16a34a" stroke-width="2"/><text x="680" y="140">A</text><text x="680" y="205" font-size="12">r × k</text>
+<text x="650" y="240" fill="#166534" font-weight="bold">trained</text>
+<text x="505" y="175" font-size="26">+</text>
+<text x="820" y="175" font-size="18" font-weight="bold">y</text><text x="820" y="195" fill="#475569">(d)</text>
+</g>
+<g stroke="#475569" stroke-width="2" marker-end="url(#a)" fill="none">
+<line x1="110" y1="180" x2="245" y2="180"/>
+<line x1="760" y1="170" x2="805" y2="170"/>
+</g>
+<g font-size="13" fill="#0f172a">
+<text x="20" y="345">At the start B = 0 → ΔW = BA = 0: the model is exactly the pre-trained model.</text>
+<text x="20" y="365">Learned parameters: r·(d+k) instead of d·k. For d = k = 4096, r = 16: 131,072 instead of 16,777,216 (0.78%).</text>
+</g>
+</svg>

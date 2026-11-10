@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" font-family="Helvetica, Arial, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#475569"/></marker><marker id="r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#dc2626"/></marker></defs>
+<rect width="960" height="300" fill="#ffffff"/>
+<text x="480" y="28" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">The forward pass of the neural bigram (5 examples from “emma”)</text>
+<g font-size="13" text-anchor="middle">
+<rect x="15" y="80" width="110" height="80" rx="10" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/><text x="70" y="108" font-weight="bold">xs</text><text x="70" y="128">indices</text><text x="70" y="148" font-family="JetBrains Mono, monospace">(5,)</text>
+<rect x="155" y="80" width="110" height="80" rx="10" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/><text x="210" y="108" font-weight="bold">one-hot</text><text x="210" y="128">a single 1</text><text x="210" y="148" font-family="JetBrains Mono, monospace">(5, 27)</text>
+<rect x="295" y="80" width="120" height="80" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="355" y="108" font-weight="bold">logits</text><text x="355" y="128">free scores</text><text x="355" y="148" font-family="JetBrains Mono, monospace">(5, 27)</text>
+<rect x="445" y="80" width="120" height="80" rx="10" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/><text x="505" y="108" font-weight="bold">counts</text><text x="505" y="128">all &gt; 0</text><text x="505" y="148" font-family="JetBrains Mono, monospace">(5, 27)</text>
+<rect x="595" y="80" width="120" height="80" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="655" y="108" font-weight="bold">probs</text><text x="655" y="128">sum 1 per row</text><text x="655" y="148" font-family="JetBrains Mono, monospace">(5, 27)</text>
+<rect x="745" y="80" width="90" height="80" rx="10" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/><text x="790" y="108" font-weight="bold">p true</text><text x="790" y="128">1 per row</text><text x="790" y="148" font-family="JetBrains Mono, monospace">(5,)</text>
+<rect x="865" y="80" width="80" height="80" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/><text x="905" y="112" font-weight="bold">loss</text><text x="905" y="140" font-family="JetBrains Mono, monospace">()</text>
+</g>
+<g stroke="#475569" stroke-width="2" marker-end="url(#a)" fill="none">
+<line x1="125" y1="120" x2="153" y2="120"/><line x1="265" y1="120" x2="293" y2="120"/><line x1="415" y1="120" x2="443" y2="120"/><line x1="565" y1="120" x2="593" y2="120"/><line x1="715" y1="120" x2="743" y2="120"/><line x1="835" y1="120" x2="863" y2="120"/>
+</g>
+<g font-size="12" font-family="JetBrains Mono, monospace" fill="#334155" text-anchor="middle">
+<text x="140" y="188">F.one_hot</text><text x="280" y="188">@ W</text><text x="430" y="188">.exp()</text><text x="580" y="188">/ sum</text><text x="730" y="188">[arange, ys]</text><text x="850" y="188">−log, mean</text>
+</g>
+<path d="M155,210 h410" stroke="#7c3aed" stroke-width="2" fill="none"/><text x="360" y="232" text-anchor="middle" font-size="13" fill="#7c3aed">the only place with parameters: W (27 × 27 = 729)</text>
+<path d="M430,250 h290" stroke="#16a34a" stroke-width="2" fill="none"/><text x="575" y="272" text-anchor="middle" font-size="13" fill="#16a34a">exp + division = softmax</text>
+</svg>

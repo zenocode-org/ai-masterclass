@@ -1,7 +1,7 @@
 [project]
 name = "ai-masterclass"
 version = "1.0.0"
-description = "Du bigramme au fine-tuning d'un LLM : cours en notebooks Jupyter (chapitres 1 à 3)."
+description = "From bigrams to fine-tuning an LLM: a bilingual (English / French) course in Jupyter notebooks, plus study notes."
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
